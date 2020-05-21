@@ -1,0 +1,75 @@
+[System]
+Name='havakirliligi2'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=26
+AndMethod='min'
+OrMethod='max'
+ImpMethod='prod'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='PM10'
+Range=[0 540]
+NumMFs=3
+MF1='iyi':'trimf',[0 52 203]
+MF2='zararli':'trimf',[67 269 472]
+MF3='tehlikeli':'trimf',[280.7 485.7 540]
+
+[Input2]
+Name='CO'
+Range=[0 54]
+NumMFs=3
+MF1='iyi':'trimf',[0 2.25 20.25]
+MF2='zararli':'trimf',[6.75 27 42.25]
+MF3='tehlikeli':'trimf',[33.75 54 54]
+
+[Input3]
+Name='SO2'
+Range=[0 1]
+NumMFs=3
+MF1='iyi':'trimf',[0 0.375 0.416]
+MF2='zararli':'trimf',[0.125 0.55952380952381 0.875]
+MF3='tehlikeli':'trimf',[0.6127 0.9658 1]
+
+[Output1]
+Name='havakirliligi'
+Range=[0 540]
+NumMFs=6
+MF1='iyi':'trimf',[-181.7 10.61 112.7]
+MF2='orta':'trimf',[50 87.5 150]
+MF3='s.zararli':'trimf',[100 149.5 200]
+MF4='zararli':'trimf',[150 225 300]
+MF5='tehlikeli':'trimf',[293.5 487.5 727.5]
+MF6='c.zararli':'trimf',[200 300 400]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 2 (1) : 1
+1 2 1, 2 (1) : 1
+2 1 1, 2 (1) : 1
+1 1 3, 3 (1) : 1
+1 3 1, 3 (1) : 1
+3 1 1, 3 (1) : 1
+2 2 2, 4 (1) : 1
+2 2 1, 3 (1) : 1
+2 1 2, 3 (1) : 1
+1 2 2, 3 (1) : 1
+3 3 3, 6 (1) : 1
+2 2 3, 5 (1) : 1
+2 3 2, 5 (1) : 1
+3 2 2, 5 (1) : 1
+3 3 2, 6 (1) : 1
+3 2 3, 6 (1) : 1
+2 3 3, 6 (1) : 1
+1 1 3, 6 (1) : 1
+1 3 1, 6 (1) : 1
+3 1 1, 6 (1) : 1
+1 2 3, 5 (1) : 1
+3 1 2, 5 (1) : 1
+3 3 1, 3 (1) : 1
+3 1 3, 3 (1) : 1
+1 3 3, 3 (1) : 1
